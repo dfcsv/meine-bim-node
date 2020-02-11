@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>XHR Test</title>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="My Name" />
+    <meta name="description" content="A Description" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Fetch Test</h1>
+
+    <div id="result"></div>
+
+
+    <script>
+      const getLocation = () => {
+        return new Promise((resolve, reject) => {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(pos => {
+              resolve({
+                latitude: pos.coords.latitude,
+                longitude: pos.coords.longitude
+              })
+            }, error => {
+              reject(error);
+            }, 
+              {
+               enableHighAccuracy: true,
+               timeout: 10000,
+               maximumAge: 0
+             });
+           } 
+        });
+      }
+
+      const sendData = async () => {
+        let position = await getLocation();
+        let timestamp = moment().format();
+
+        let payLoad = {
+          latitude: position.latitude,
+          longitude: position.longitude,
+          time: timestamp
+        }
+
+        console.log(JSON.stringify(payLoad));   
+
+        let response = await fetch("/api", {
+          method: "POST", 
+          headers: {
+            "Content-Type": "application/json;charset=utf-8"
+          },
+          credentials: "include",
+          body: JSON.stringify(payLoad)
+        });
+      }
+
+      sendData(); 
+
+    </script>
+
+  </body>
+</html>

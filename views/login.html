@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Login</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="My Name" />
+    <meta name="description" content="A Description" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        background: rgb(232,238,174);
+        background: radial-gradient(circle, rgba(232,238,174,0.5) 0%, rgba(148,213,233,1) 100%);  
+      }
+    
+    </style>
+  </head>
+
+  <body>
+    <div class="container vh-100">
+      <div class="d-flex flex-column align-items-center justify-content-center h-100">
+  
+        <form method="POST">
+          <input type="hidden" name="_csrf" value="{{csrfToken}}">
+          <h1>Login</h1>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        
+        {{#each errors}}
+          <p class="alert alert-danger mt-3">{{ this.msg }}</p>
+        {{/each}}
+
+      </div>
+    </div>
+  </body>
+</html>

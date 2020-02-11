@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Login</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="My Name" />
+    <meta name="description" content="A Description" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        background: rgb(232,238,174);
+        background: radial-gradient(circle, rgba(232,238,174,0.5) 0%, rgba(148,213,233,1) 100%);  
+      }
+    
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Location Data</h1>
+      <div class="row">
+        <div class="col-lg-1 col-md-2"></div>
+        <div class="col-lg-10 col-md-8">
+          <table class="table table-stripped table-hover">
+            <thead>
+              <tr>
+                <th>User Agent</th>
+                <th>Time</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each data}}
+                <tr>
+                  <td>{{this.UserAgent}}</td>
+                  <td>{{this.Timestamp}}</td>
+                  <td>{{this.Latitude}}</td>
+                  <td>{{this.Longitude}}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-lg-1 col-md-2"></div>
+      </div>
+    </div>
+  </body>
+</html>
