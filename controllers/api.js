@@ -41,7 +41,7 @@ apiRouter.post("/api", validationService.validateLocation(),
 );
 
 // https://www.wienerlinien.at/ogd_realtime/monitor?&rbl=1212&rbl=1345&rbl=5568&rbl=2910&rbl=4203&rbl=4212&rbl=46&rbl=18&rbl=1303&rbl=3701
-/** POST: /bim/:url 
+/** POST: /bim/:rbl 
  *  get data from Wiener Linien API, send response
  */ 
 apiRouter.get("/bim/*", async (req, res) => {
