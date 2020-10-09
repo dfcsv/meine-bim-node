@@ -4,7 +4,7 @@ Meine-bim.com is a React App, showing a map of Vienna and all its public transpo
  
 This repository contains the NodeJS Backend, organized with the MVC (Model View Controller) pattern, providing authentication and data collection services.
  
-App can be seen here: [Meine-Bim.com](https://meine-bim.com)
+App can be seen here: [Meine-Bim](https://dfcsv.github.io/meine-bim-host)
 
 ## What I learned
  
